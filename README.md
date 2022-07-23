@@ -1,18 +1,18 @@
 # Go SDK for KuMex API
 > The detailed document [https://docs.kucoin.com/futures](https://docs.kucoin.com/futures), in order to receive the latest API change notifications, please `Watch` this repository.
 
-[![Latest Version](https://img.shields.io/github/release/Kucoin/kucoin-futures-go-sdk.svg)](https://github.com/Kucoin/kucoin-futures-go-sdk/releases)
-[![GoDoc](https://godoc.org/github.com/Kucoin/kucoin-futures-go-sdk?status.svg)](https://godoc.org/github.com/Kucoin/kucoin-futures-go-sdk)
+[![Latest Version](https://img.shields.io/github/release/Kucoin/kucoin-futures-go-sdk.svg)](https://github.com/gsjohn/kucoin-futures-go-sdk/releases)
+[![GoDoc](https://godoc.org/github.com/gsjohn/kucoin-futures-go-sdk?status.svg)](https://godoc.org/github.com/gsjohn/kucoin-futures-go-sdk)
 [![Build Status](https://travis-ci.org/Kucoin/kucoin-futures-go-sdk.svg?branch=master)](https://travis-ci.org/Kucoin/kucoin-futures-go-sdk)
-[![Go Report Card](https://goreportcard.com/badge/github.com/Kucoin/kucoin-futures-go-sdk)](https://goreportcard.com/report/github.com/Kucoin/kucoin-futures-go-sdk)
-[![Sourcegraph](https://sourcegraph.com/github.com/Kucoin/kucoin-futures-go-sdk/-/badge.svg)](https://sourcegraph.com/github.com/Kucoin/kucoin-futures-go-sdk?badge)
-<!-- [![Total Lines](https://tokei.rs/b1/github/Kucoin/kucoin-futures-go-sdk)](https://github.com/Kucoin/kucoin-futures-go-sdk) -->
+[![Go Report Card](https://goreportcard.com/badge/github.com/gsjohn/kucoin-futures-go-sdk)](https://goreportcard.com/report/github.com/gsjohn/kucoin-futures-go-sdk)
+[![Sourcegraph](https://sourcegraph.com/github.com/gsjohn/kucoin-futures-go-sdk/-/badge.svg)](https://sourcegraph.com/github.com/gsjohn/kucoin-futures-go-sdk?badge)
+<!-- [![Total Lines](https://tokei.rs/b1/github/Kucoin/kucoin-futures-go-sdk)](https://github.com/gsjohn/kucoin-futures-go-sdk) -->
 
 
 ## Install
 
 ```bash
-go get github.com/Kucoin/kucoin-futures-go-sdk
+go get github.com/gsjohn/kucoin-futures-go-sdk
 ```
 
 ## Usage

@@ -3,6 +3,7 @@ package kumex
 import (
 	"bytes"
 	"crypto/tls"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"io/ioutil"
@@ -13,7 +14,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/json-iterator/go"
 	"github.com/sirupsen/logrus"
 )
 
@@ -61,7 +61,7 @@ func (r *Request) addParams(params map[string]string) {
 		if params == nil {
 			return
 		}
-		b, err := jsoniter.Marshal(params)
+		b, err := json.Marshal(params)
 		if err != nil {
 			log.Panic("Cannot marshal params to JSON string:", err.Error())
 		}
@@ -199,7 +199,7 @@ func (r *Response) ReadJsonBody(v interface{}) error {
 	if err != nil {
 		return err
 	}
-	return jsoniter.Unmarshal(b, v)
+	return json.Unmarshal(b, v)
 }
 
 // The predefined API codes
@@ -210,9 +210,9 @@ const (
 // An ApiResponse represents a API response wrapped Response.
 type ApiResponse struct {
 	response *Response
-	Code     string              `json:"code"`
-	RawData  jsoniter.RawMessage `json:"data"` // delay parsing
-	Message  string              `json:"msg"`
+	Code     string          `json:"code"`
+	RawData  json.RawMessage `json:"data"` // delay parsing
+	Message  string          `json:"msg"`
 }
 
 // HttpSuccessful judges the success of http.
@@ -264,7 +264,7 @@ func (ar *ApiResponse) ReadData(v interface{}) error {
 		return errors.New(m)
 	}
 
-	return jsoniter.Unmarshal(ar.RawData, v)
+	return json.Unmarshal(ar.RawData, v)
 }
 
 // ReadPaginationData read the data `items` as JSON into v, and returns *PaginationModel.

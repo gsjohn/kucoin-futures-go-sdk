@@ -12,7 +12,7 @@ type KLinesModel []*KLineModel
 // Parameter #2 granularity is the type of granularity patterns(minute).
 // Parameter #3 #4 startAt, endAt is millisecond.
 func (as *ApiService) KLines(symbol, granularity string, startAt, endAt int64) (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/kline/query", map[string]string{
+	req := NewRequest(http.MethodGet, "/kline/query", map[string]string{
 		"symbol":      symbol,
 		"granularity": granularity,
 		"startAt":     IntToString(startAt),

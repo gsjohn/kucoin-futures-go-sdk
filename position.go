@@ -52,24 +52,24 @@ func (as *ApiService) Position(symbol string) (*ApiResponse, error) {
 	if symbol != "" {
 		p["symbol"] = symbol
 	}
-	req := NewRequest(http.MethodGet, "/api/v1/position", p)
+	req := NewRequest(http.MethodGet, "/position", p)
 	return as.Call(req)
 }
 
 // Positions Get Position List.
 func (as *ApiService) Positions() (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/positions", nil)
+	req := NewRequest(http.MethodGet, "/positions", nil)
 	return as.Call(req)
 }
 
 // AutoDepositStatus Enable/Disable of Auto-Deposit Margin.
 func (as *ApiService) AutoDepositStatus(params map[string]string) (*ApiResponse, error) {
-	req := NewRequest(http.MethodPost, "/api/v1/position/margin/auto-deposit-status", params)
+	req := NewRequest(http.MethodPost, "/position/margin/auto-deposit-status", params)
 	return as.Call(req)
 }
 
 // DepositMargin Add Margin Manually.
 func (as *ApiService) DepositMargin(params map[string]string) (*ApiResponse, error) {
-	req := NewRequest(http.MethodPost, "/api/v1/position/margin/deposit-margin", params)
+	req := NewRequest(http.MethodPost, "/position/margin/deposit-margin", params)
 	return as.Call(req)
 }

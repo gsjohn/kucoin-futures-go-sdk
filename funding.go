@@ -23,6 +23,6 @@ type FundingListModel struct {
 
 // FundingHistory Get Funding History.
 func (as *ApiService) FundingHistory(params map[string]string) (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/funding-history", params)
+	req := NewRequest(http.MethodGet, "/funding-history", params)
 	return as.Call(req)
 }

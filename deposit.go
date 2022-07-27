@@ -17,7 +17,7 @@ type DepositAddressesModel []*DepositAddressModel
 // If return data is empty, you may need create a deposit address first.
 func (as *ApiService) DepositAddresses(currency string) (*ApiResponse, error) {
 	params := map[string]string{"currency": currency}
-	req := NewRequest(http.MethodGet, "/api/v1/deposit-addresses", params)
+	req := NewRequest(http.MethodGet, "/deposit-addresses", params)
 	return as.Call(req)
 }
 
@@ -39,6 +39,6 @@ type DepositsModel []*DepositModel
 // Deposits returns a list of deposit.
 func (as *ApiService) Deposits(params map[string]string, pagination *PaginationParam) (*ApiResponse, error) {
 	pagination.ReadParam(params)
-	req := NewRequest(http.MethodGet, "/api/v1/deposit-list", params)
+	req := NewRequest(http.MethodGet, "/deposit-list", params)
 	return as.Call(req)
 }

@@ -63,13 +63,11 @@ type ApiService struct {
 // ProductionApiBaseURI is api base uri for production.
 const ProductionApiBaseURI = "https://api-futures.kucoin.com"
 
-
 // ApiKeyVersionV1 is v1 api key version
 const ApiKeyVersionV1 = "1"
 
 // ApiKeyVersionV2 is v2 api key version
 const ApiKeyVersionV2 = "2"
-
 
 // An ApiServiceOption is a option parameter to create the instance of ApiService.
 type ApiServiceOption func(service *ApiService)
@@ -109,7 +107,6 @@ func ApiSkipVerifyTlsOption(skipVerifyTls bool) ApiServiceOption {
 	}
 }
 
-
 // ApiKeyVersionOption creates a instance of ApiServiceOption about apiKeyVersion.
 func ApiKeyVersionOption(apiKeyVersion string) ApiServiceOption {
 	return func(service *ApiService) {
@@ -133,8 +130,10 @@ func NewApiService(opts ...ApiServiceOption) *ApiService {
 
 	if as.apiKey != "" {
 		if as.apiKeyVersion == ApiKeyVersionV1 {
+			as.apiBaseURI = fmt.Sprintf("%s/api/v1", as.apiBaseURI)
 			as.signer = NewKcSigner(as.apiKey, as.apiSecret, as.apiPassphrase)
 		} else {
+			as.apiBaseURI = fmt.Sprintf("%s/api/v2", as.apiBaseURI)
 			as.signer = NewKcSignerV2(as.apiKey, as.apiSecret, as.apiPassphrase)
 		}
 	}

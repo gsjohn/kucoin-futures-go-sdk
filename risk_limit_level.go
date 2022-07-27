@@ -20,12 +20,12 @@ type ContractsRiskLimitLevelModel []*RiskLimitLevelModel
 
 // ContractsRiskLimitLevel obtain information about risk limit level of a specific contract
 func (as *ApiService) ContractsRiskLimitLevel(symbol string) (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/contracts/risk-limit/"+symbol, nil)
+	req := NewRequest(http.MethodGet, "/contracts/risk-limit/"+symbol, nil)
 	return as.Call(req)
 }
 
 // ContractsRiskLimit adjust contract risk limit level
 func (as *ApiService) ChangeRiskLimitLevel(params map[string]string) (*ApiResponse, error) {
-	req := NewRequest(http.MethodPost, "/api/v1/position/risk-limit-level/change", params)
+	req := NewRequest(http.MethodPost, "/position/risk-limit-level/change", params)
 	return as.Call(req)
 }

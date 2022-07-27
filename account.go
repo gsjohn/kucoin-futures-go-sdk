@@ -22,7 +22,7 @@ type AccountsModel []*AccountModel
 // AccountOverview returns a list of accounts.
 // See the Deposits section for documentation on how to deposit funds to begin trading.
 func (as *ApiService) AccountOverview(params map[string]string) (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/account-overview", params)
+	req := NewRequest(http.MethodGet, "/account-overview", params)
 	return as.Call(req)
 }
 
@@ -47,6 +47,6 @@ type TransactionHistoryListModel []*TransactionHistoryModel
 // Items are paginated and sorted latest first.
 func (as *ApiService) TransactionHistory(params map[string]string, pagination *PaginationParam) (*ApiResponse, error) {
 	pagination.ReadParam(params)
-	req := NewRequest(http.MethodGet, "/api/v1/transaction-history", params)
+	req := NewRequest(http.MethodGet, "/transaction-history", params)
 	return as.Call(req)
 }

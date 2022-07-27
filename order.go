@@ -9,7 +9,7 @@ type CreateOrderResultModel struct {
 
 // CreateOrder places a new order.
 func (as *ApiService) CreateOrder(params map[string]string) (*ApiResponse, error) {
-	req := NewRequest(http.MethodPost, "/api/v1/orders", params)
+	req := NewRequest(http.MethodPost, "/orders", params)
 	return as.Call(req)
 }
 
@@ -20,7 +20,7 @@ type CancelOrderResultModel struct {
 
 // CancelOrder cancels a previously placed order.
 func (as *ApiService) CancelOrder(orderId string) (*ApiResponse, error) {
-	req := NewRequest(http.MethodDelete, "/api/v1/orders/"+orderId, nil)
+	req := NewRequest(http.MethodDelete, "/orders/"+orderId, nil)
 	return as.Call(req)
 }
 
@@ -31,7 +31,7 @@ func (as *ApiService) CancelOrders(symbol string) (*ApiResponse, error) {
 	if symbol != "" {
 		p["symbol"] = symbol
 	}
-	req := NewRequest(http.MethodDelete, "/api/v1/orders", p)
+	req := NewRequest(http.MethodDelete, "/orders", p)
 	return as.Call(req)
 }
 
@@ -41,7 +41,7 @@ func (as *ApiService) StopOrders(symbol string) (*ApiResponse, error) {
 	if symbol != "" {
 		p["symbol"] = symbol
 	}
-	req := NewRequest(http.MethodDelete, "/api/v1/stopOrders", p)
+	req := NewRequest(http.MethodDelete, "/stopOrders", p)
 	return as.Call(req)
 }
 
@@ -86,24 +86,24 @@ type OrdersModel []*OrderModel
 // Orders returns a list your current orders.
 func (as *ApiService) Orders(params map[string]string, pagination *PaginationParam) (*ApiResponse, error) {
 	pagination.ReadParam(params)
-	req := NewRequest(http.MethodGet, "/api/v1/orders", params)
+	req := NewRequest(http.MethodGet, "/orders", params)
 	return as.Call(req)
 }
 
 // Order returns a single order by order id.
 func (as *ApiService) Order(orderId string) (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/orders/"+orderId, nil)
+	req := NewRequest(http.MethodGet, "/orders/"+orderId, nil)
 	return as.Call(req)
 }
 
 // Order returns a single order by client Oid.
 func (as *ApiService) OrderByClientOid(clientOid string) (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/orders/byClientOid?clientOid="+clientOid, nil)
+	req := NewRequest(http.MethodGet, "/orders/byClientOid?clientOid="+clientOid, nil)
 	return as.Call(req)
 }
 
 // RecentDoneOrders returns the recent orders of the latest transactions within 24 hours.
 func (as *ApiService) RecentDoneOrders() (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/recentDoneOrders", nil)
+	req := NewRequest(http.MethodGet, "/recentDoneOrders", nil)
 	return as.Call(req)
 }

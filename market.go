@@ -21,7 +21,7 @@ type TickerLevel1Model struct {
 
 // Ticker Get Real-Time Ticker.
 func (as *ApiService) Ticker(symbol string) (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/ticker", map[string]string{"symbol": symbol})
+	req := NewRequest(http.MethodGet, "/ticker", map[string]string{"symbol": symbol})
 	return as.Call(req)
 }
 
@@ -35,7 +35,7 @@ type Level2SnapshotModel struct {
 
 // Level2Snapshot Get Full Order Book - Level 2.
 func (as *ApiService) Level2Snapshot(symbol string) (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/level2/snapshot", map[string]string{"symbol": symbol})
+	req := NewRequest(http.MethodGet, "/level2/snapshot", map[string]string{"symbol": symbol})
 	return as.Call(req)
 }
 
@@ -51,7 +51,7 @@ type Level2MessageQueryListModel []*Level2MessageQueryModel
 
 // Level2MessageQuery Level 2 Pulling Messages.
 func (as *ApiService) Level2MessageQuery(symbol string, start, end int64) (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/level2/message/query", map[string]string{
+	req := NewRequest(http.MethodGet, "/level2/message/query", map[string]string{
 		"symbol": symbol,
 		"start":  IntToString(start),
 		"end":    IntToString(end),
@@ -69,7 +69,7 @@ type Level3SnapshotModel struct {
 
 // Level3Snapshot Get Full Order Book - Level 3.
 func (as *ApiService) Level3Snapshot(symbol string) (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/level3/snapshot", map[string]string{"symbol": symbol})
+	req := NewRequest(http.MethodGet, "/level3/snapshot", map[string]string{"symbol": symbol})
 	return as.Call(req)
 }
 
@@ -107,7 +107,7 @@ type Level3MessageQueryListModel []*Level3MessageQueryModel
 
 // Level3MessageQuery Level 3 Pulling Messages.
 func (as *ApiService) Level3MessageQuery(symbol string, start, end int64) (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/level3/message/query", map[string]string{
+	req := NewRequest(http.MethodGet, "/level3/message/query", map[string]string{
 		"symbol": symbol,
 		"start":  IntToString(start),
 		"end":    IntToString(end),
@@ -132,7 +132,7 @@ type TradesHistoryModel []*TradeHistoryModel
 
 // TradeHistory returns a list the latest trades for a symbol.
 func (as *ApiService) TradeHistory(symbol string) (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/trade/history", map[string]string{"symbol": symbol})
+	req := NewRequest(http.MethodGet, "/trade/history", map[string]string{"symbol": symbol})
 	return as.Call(req)
 }
 
@@ -152,7 +152,7 @@ type InterestsModel struct {
 
 // InterestQuery Get Interest Rate List .
 func (as *ApiService) InterestQuery(params map[string]string, pagination *PaginationParam) (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/interest/query", params)
+	req := NewRequest(http.MethodGet, "/interest/query", params)
 	return as.Call(req)
 }
 
@@ -173,7 +173,7 @@ type IndexQueryModel struct {
 
 // IndexQuery Get Index List.
 func (as *ApiService) IndexQuery(params map[string]string, pagination *PaginationParam) (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/interest/query", params)
+	req := NewRequest(http.MethodGet, "/interest/query", params)
 	return as.Call(req)
 }
 
@@ -188,7 +188,7 @@ type MarkPriceModel struct {
 
 // MarkPrice Get Current Mark Price
 func (as *ApiService) MarkPrice(Symbol string) (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/mark-price/"+Symbol+"/current", nil)
+	req := NewRequest(http.MethodGet, "/mark-price/"+Symbol+"/current", nil)
 	return as.Call(req)
 }
 
@@ -208,7 +208,7 @@ type PremiumsModel struct {
 
 // PremiumQuery Get Premium Index.
 func (as *ApiService) PremiumQuery(params map[string]string, pagination *PaginationParam) (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/premium/query", params)
+	req := NewRequest(http.MethodGet, "/premium/query", params)
 	return as.Call(req)
 }
 
@@ -223,6 +223,6 @@ type FundingRateModel struct {
 
 // FundingRate Get Current Funding Rate.
 func (as *ApiService) FundingRate(Symbol string) (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/funding-rate/"+Symbol+"/current", nil)
+	req := NewRequest(http.MethodGet, "/funding-rate/"+Symbol+"/current", nil)
 	return as.Call(req)
 }

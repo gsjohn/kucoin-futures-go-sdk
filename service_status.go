@@ -12,6 +12,6 @@ type ServiceStatusModel struct {
 
 // ServiceStatus returns the service status.
 func (as *ApiService) ServiceStatus() (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/status", nil)
+	req := NewRequest(http.MethodGet, "/status", nil)
 	return as.Call(req)
 }

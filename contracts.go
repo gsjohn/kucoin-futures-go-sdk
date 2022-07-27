@@ -43,12 +43,12 @@ type ContractsModels []*ContractsModel
 
 // ActiveContracts Get Open Contract List.
 func (as *ApiService) ActiveContracts() (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/contracts/active", nil)
+	req := NewRequest(http.MethodGet, "/contracts/active", nil)
 	return as.Call(req)
 }
 
 // Contracts Get Order Info. of the Contract.
 func (as *ApiService) Contracts(symbol string) (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/api/v1/contracts/"+symbol, nil)
+	req := NewRequest(http.MethodGet, "/contracts/"+symbol, nil)
 	return as.Call(req)
 }

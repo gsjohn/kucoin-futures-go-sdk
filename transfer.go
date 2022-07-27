@@ -13,7 +13,7 @@ func (as *ApiService) TransferOut(bizNo, amount string) (*ApiResponse, error) {
 		"bizNo":  bizNo,
 		"amount": amount,
 	}
-	req := NewRequest(http.MethodPost, "/api/v1/transfer-out", p)
+	req := NewRequest(http.MethodPost, "/transfer-out", p)
 	return as.Call(req)
 }
 
@@ -50,7 +50,7 @@ type TransfersModel []*TransferModel
 // TransferList returns a list of deposit.
 func (as *ApiService) TransferList(params map[string]string, pagination *PaginationParam) (*ApiResponse, error) {
 	pagination.ReadParam(params)
-	req := NewRequest(http.MethodGet, "/api/v1/transfer-list", params)
+	req := NewRequest(http.MethodGet, "/transfer-list", params)
 	return as.Call(req)
 }
 
@@ -64,6 +64,6 @@ func (as *ApiService) CancelTransfer(applyId string) (*ApiResponse, error) {
 	p := map[string]string{
 		"applyId": applyId,
 	}
-	req := NewRequest(http.MethodDelete, "/api/v1/cancel/transfer-out", p)
+	req := NewRequest(http.MethodDelete, "/cancel/transfer-out", p)
 	return as.Call(req)
 }

@@ -18,7 +18,7 @@ func TestApiService_TickerLevel1(t *testing.T) {
 	switch {
 	case tk.Sequence <= 0:
 		t.Error("Empty key 'sequence'")
-	case tk.Price == "":
+	case tk.Price == 0:
 		t.Error("Empty key 'price'")
 	case tk.Symbol == "":
 		t.Error("Empty key 'Symbol'")

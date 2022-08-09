@@ -13,7 +13,7 @@ func TestApiService_Position(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	o := &PositionModel{}
+	o := &PositionModelV1{}
 	if err := rsp.ReadData(o); err != nil {
 		t.Fatal(err)
 	}
@@ -40,7 +40,7 @@ func TestApiService_Positions(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	o := &PositionModel{}
+	o := &PositionModelV1{}
 	if err := rsp.ReadData(o); err != nil {
 		t.Fatal(err)
 	}
@@ -71,7 +71,7 @@ func TestApiService_autoDepositStatus(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	o := &PositionModel{}
+	o := &PositionModelV1{}
 	if err := rsp.ReadData(o); err != nil {
 		t.Fatal(err)
 	}
@@ -95,7 +95,7 @@ func TestApiService_DepositMargin(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	o := &PositionModel{}
+	o := &PositionModelV1{}
 	if err := rsp.ReadData(o); err != nil {
 		t.Fatal(err)
 	}

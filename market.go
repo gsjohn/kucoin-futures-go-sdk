@@ -6,17 +6,17 @@ import (
 
 // A TickerLevel1Model represents ticker include only the inside (i.e. best) bid and ask data, last price and last trade size.
 type TickerLevel1Model struct {
-	Sequence     int    `json:"sequence"`
-	Symbol       string `json:"symbol"`
-	Side         string `json:"side"`
-	Size         int    `json:"size"`
-	Price        string `json:"price"`
-	BestBidSize  int    `json:"bestBidSize"`
-	BestBidPrice string `json:"bestBidPrice"`
-	BestAskSize  int    `json:"bestAskSize"`
-	BestAskPrice string `json:"bestAskPrice"`
-	TradeId      string `json:"tradeId"`
-	Ts           int64  `json:"ts"`
+	Sequence     int     `json:"sequence"`
+	Symbol       string  `json:"symbol"`
+	Side         string  `json:"side"`
+	Size         int     `json:"size"`
+	Price        float64 `json:"price"`
+	BestBidSize  int     `json:"bestBidSize"`
+	BestBidPrice string  `json:"bestBidPrice"`
+	BestAskSize  int     `json:"bestAskSize"`
+	BestAskPrice string  `json:"bestAskPrice"`
+	TradeId      string  `json:"tradeId"`
+	Ts           int64   `json:"ts"`
 }
 
 // Ticker Get Real-Time Ticker.

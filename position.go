@@ -5,7 +5,7 @@ import (
 )
 
 // A PositionModel represents a position info.
-type PositionModel struct {
+type PositionModelV1 struct {
 	Id                string `json:"id"`
 	Symbol            string `json:"symbol"`
 	AutoDeposit       bool   `json:"autoDeposit"`
@@ -46,19 +46,39 @@ type PositionModel struct {
 	RiskLimitLevel    string `json:"riskLimitLevel"`
 }
 
+type PositionModelV2 struct {
+	Symbol                string  `json:"symbol"`
+	Qty                   float64 `json:"qty"`
+	Leverage              int     `json:"leverage"`
+	MarginType            string  `json:"marginType"`
+	Side                  string  `json:"side"`
+	AutoDeposit           bool    `json:"autoDeposit"`
+	EntryPrice            float64 `json:"entryPrice"`
+	EntryValue            float64 `json:"entryValue"`
+	Margin                float64 `json:"margin"`
+	TotalMargin           float64 `json:"totalMargin"`
+	LiquidationPrice      float64 `json:"liquidationPrice"`
+	UnrealisedPnl         float64 `json:"unrealisedPnl"`
+	MarkPrice             float64 `json:"markPrice"`
+	RiskRate              float64 `json:"riskRate"`
+	MaintenanceMarginRate float64 `json:"maintenanceMarginRate"`
+	MaintenanceMargin     float64 `json:"maintenanceMargin"`
+	AdlPercentile         int     `json:"adlPercentile"`
+}
+
 // Position Get Position Details.
 func (as *ApiService) Position(symbol string) (*ApiResponse, error) {
 	p := map[string]string{}
 	if symbol != "" {
 		p["symbol"] = symbol
 	}
-	req := NewRequest(http.MethodGet, "/position", p)
+	req := NewRequest(http.MethodGet, "/symbol-position", p)
 	return as.Call(req)
 }
 
 // Positions Get Position List.
 func (as *ApiService) Positions() (*ApiResponse, error) {
-	req := NewRequest(http.MethodGet, "/positions", nil)
+	req := NewRequest(http.MethodGet, "/all-position", nil)
 	return as.Call(req)
 }
 

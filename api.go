@@ -133,7 +133,7 @@ func NewApiService(opts ...ApiServiceOption) *ApiService {
 			as.apiBaseURI = fmt.Sprintf("%s/api/v1", as.apiBaseURI)
 			as.signer = NewKcSigner(as.apiKey, as.apiSecret, as.apiPassphrase)
 		} else {
-			as.apiBaseURI = fmt.Sprintf("%s/api/v2", as.apiBaseURI)
+			as.apiBaseURI = fmt.Sprintf("%s/api/v1", as.apiBaseURI)
 			as.signer = NewKcSignerV2(as.apiKey, as.apiSecret, as.apiPassphrase)
 		}
 	}
